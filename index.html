@@ -1,371 +1,227 @@
-<script src="http://www.google.com/jsapi" type="text/javascript"></script>
-<script type="text/javascript">google.load("jquery", "1.3.2");</script>
-
-<style type="text/css">
-  body {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-weight: 300;
-    font-size: 18px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 1100px;
-  }
-
-  h1 {
-    font-size: 32px;
-    font-weight: 300;
-  }
-
-  .disclaimerbox {
-    background-color: #eee;
-    border: 1px solid #eeeeee;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    padding: 20px;
-  }
-
-  video.header-vid {
-    height: 140px;
-    border: 1px solid black;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-  }
-
-  img.header-img {
-    height: 140px;
-    border: 1px solid black;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-  }
-
-  img.rounded {
-    border: 1px solid #eeeeee;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-  }
-
-  a:link,
-  a:visited {
-    color: #1367a7;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: #208799;
-  }
-
-  td.dl-link {
-    height: 160px;
-    text-align: center;
-    font-size: 22px;
-  }
-
-  .layered-paper-big {
-    /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
-    box-shadow:
-      0px 0px 1px 1px rgba(0, 0, 0, 0.35),
-      /* The top layer shadow */
-      5px 5px 0 0px #fff,
-      /* The second layer */
-      5px 5px 1px 1px rgba(0, 0, 0, 0.35),
-      /* The second layer shadow */
-      10px 10px 0 0px #fff,
-      /* The third layer */
-      10px 10px 1px 1px rgba(0, 0, 0, 0.35),
-      /* The third layer shadow */
-      15px 15px 0 0px #fff,
-      /* The fourth layer */
-      15px 15px 1px 1px rgba(0, 0, 0, 0.35),
-      /* The fourth layer shadow */
-      20px 20px 0 0px #fff,
-      /* The fifth layer */
-      20px 20px 1px 1px rgba(0, 0, 0, 0.35),
-      /* The fifth layer shadow */
-      25px 25px 0 0px #fff,
-      /* The fifth layer */
-      25px 25px 1px 1px rgba(0, 0, 0, 0.35);
-    /* The fifth layer shadow */
-    margin-left: 10px;
-    margin-right: 45px;
-  }
-
-  .paper-big {
-    /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
-    box-shadow:
-      0px 0px 1px 1px rgba(0, 0, 0, 0.35);
-    /* The top layer shadow */
-
-    margin-left: 10px;
-    margin-right: 45px;
-  }
-
-
-  .layered-paper {
-    /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
-    box-shadow:
-      0px 0px 1px 1px rgba(0, 0, 0, 0.35),
-      /* The top layer shadow */
-      5px 5px 0 0px #fff,
-      /* The second layer */
-      5px 5px 1px 1px rgba(0, 0, 0, 0.35),
-      /* The second layer shadow */
-      10px 10px 0 0px #fff,
-      /* The third layer */
-      10px 10px 1px 1px rgba(0, 0, 0, 0.35);
-    /* The third layer shadow */
-    margin-top: 5px;
-    margin-left: 10px;
-    margin-right: 30px;
-    margin-bottom: 5px;
-  }
-
-  .vert-cent {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  hr {
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-  }
-</style>
-
+<!DOCTYPE html>
 <html>
-
 <head>
-  <title>Detection of Fast-Moving Objects with Neuromorphic Hardware</title>
-  <meta property="og:image" content="./resources/teaser.png" />
-  <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
-  <meta property="og:title" content="Detection of Fast-Moving Objects with Neuromorphic Hardware" />
-  <meta property="og:description" content="Paper description." />
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Detection of Fast-Moving Objects with Neuromorphic Hardware">
+  <meta name="keywords" content="Table Tennis Robot, Event Camera, Spiking Neural Networks, Event-Based Computer Vision, Object Detection">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>An Event-Based Perception Pipeline for a Table Tennis Robot</title>
 
-  <!-- Get from Google Analytics -->
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src=""></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() {dataLayer.push(arguments);}
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
     gtag('js', new Date());
 
-    gtag('config', 'UA-75863369-6');
+    gtag('config', 'G-PYVRSFMDRL');
   </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
 </head>
-
 <body>
-  <br>
-  <center>
-    <span style="font-size:36px">Detection of Fast-Moving Objects with Neuromorphic Hardware</span>
-    <table align=center width=1200px>
-      <table align=center width=1200px>
-        <tr>
-          <td align=center width=110px>
-            <center>
-              <span style="font-size:24px"><a href="https://andreasaziegler.github.io/">Andreas Ziegler</a></span>
-            </center>
-          </td>
-          <td align=center width=110px>
-            <center>
-              <span style="font-size:24px">Karl Vetter</span>
-            </center>
-          </td>
-          <td align=center width=110px>
-            <center>
-              <span style="font-size:24px"><a href="https://uni-tuebingen.de/de/226101">Thomas Gossard</a></span>
-            </center>
-          </td>
-          <td align=center width=100px>
-            <center>
-              <span style="font-size:24px"><a href="https://uni-tuebingen.de/de/138688">Jonas Tebbe</a></span>
-            </center>
-          </td>
-          <td align=center width=100px>
-            <center>
-              <span style="font-size:24px"><a href="https://adaptiveailab.github.io/team/sebastian">Sebastian Otte</a></span>
-            </center>
-          </td>
-          <td align=center width=100px>
-            <center>
-              <span style="font-size:24px"><a href="https://uni-tuebingen.de/de/138703">Andreas Zell</a></span>
-            </center>
-          </td>
-        </tr>
-      </table>
-      <!--<table align=center width=990px>
-        <span style="font-size:24px">*equal contribution</span>
-      </table>-->
-      <table align=center width=250px>
-        <tr>
-          <td align=center width=120px>
-            <center>
-              <span style="font-size:24px"><a href='https://arxiv.org/pdf/2403.10677'>[Paper]</a></span>
-            </center>
-          </td>
-          <td align=center width=120px>
-            <center>
-							<span style="font-size:24px"><a href='https://github.com/cogsys-tuebingen/snn-edge-benchmark'> [Code]</a></span><br>
-            </center>
-          </td>
-          <td align=center width=120px>
-            <center>
-							<span style="font-size:24px"><a href='https://github.com/cogsys-tuebingen/snn-edge-benchmark'> [Dataset]</a></span><br>
-            </center>
-          </td>
-        </tr>
-      </table>
-    </table>
-  </center>
 
-  <center>
-    <table align=center width=850px>
-      <tr>
-        <td width=260px>
-          <center>
-            <img class="round" style="width:600px" src="./resources/teaser.png" />
-          </center>
-        </td>
-      </tr>
-    </table>
-    <table align=center width=850px>
-      <tr>
-        <td>
-          <center>
-            <i>Left: Three examples of 2D ball detections in an accumulated event frame which serves as the input to the Spiking Neural Network (SNN) with <font color="green">ground truth in green</font> and the <font color="red">estimated position in red</font>. Right: Five observed 2D trajectories in the camera frame of the event-based camera with <font color="green">ground truth in green</font> and the <font color="red">estimated positions in red</font>. Background: The table tennis robot setup with the robot hitting back a table tennis ball in a rally.</i>
-          </center>
-        </td>
-      </tr>
-    </table>
-  </center>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Detection of Fast-Moving Objects with Neuromorphic Hardware</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://andreasaziegler.github.io/">Andreas Ziegler</a><sup>1</sup>,</span>
+            <span class="author-block">
+              Karl Vetter</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://uni-tuebingen.de/de/226101">Thomas Gossard</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://uni-tuebingen.de/de/138688">Jonas Tebbe</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://adaptiveailab.github.io/team/sebastian/">Sebastian Otte</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://uni-tuebingen.de/de/138703">Andreas Zell</a><sup>1</sup>
+            </span>
+          </div>
 
-  <hr>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Tübingen,</span>
+            <span class="author-block"><sup>2</sup>University of Lübeck</span>
+          </div>
 
-  <table align=center width=850px>
-    <center>
-      <h1>Abstract</h1>
-    </center>
-    <tr>
-      <td>
-          Neuromorphic Computing (NC) and Spiking Neural Networks (SNNs) in particular are often viewed as the next generation of Neural Networks (NNs). NC is a novel bio-inspired paradigm for energy efficient neural computation, often relying on SNNs in which neurons communicate via spikes in a sparse, event-based manner. This communication via spikes can be exploited by neuromorphic hardware implementations very effectively and results in a drastic reductions of power consumption and latency in contrast to regular GPU-based NNs. In recent years, neuromorphic hardware has become more accessible, and the support of learning frameworks has improved. However, available hardware is partially still experimental, and it is not transparent what these solutions are effectively capable of, how they integrate into real-world robotics applications, and how they realistically benefit energy efficiency and latency. In this work, we provide the robotics research community with an overview of what is possible with SNNs on neuromorphic hardware focusing on real-time processing. We introduce a benchmark of three popular neuromorphic hardware devices for the task of event-based object detection. Moreover, we show that an SNN on a neuromorphic hardware is able to run in a challenging table tennis robot setup in real-time.
-      </td>
-    </tr>
-  </table>
-  <br>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2403.10677"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2403.10677"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://youtu.be/uLgIhVKnsHg"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/cogsys-tuebingen/snn-edge-benchmark"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://github.com/cogsys-tuebingen/snn-edge-benchmark/tree/main/dataset"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                </a>
+              </span>
+            </div>
 
-  <hr>
-  <center>
-    <h1>Video</h1>
-  </center>
-  <p align="center">
-    <iframe width="660" height="395" src="https://www.youtube.com/embed/uLgIhVKnsHg" frameborder="0"
-      allow="autoplay; encrypted-media" allowfullscreen align="center"></iframe>
-  </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!--
-  <table align=center width=800px>
-    <br>
-    <tr>
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
       <center>
-        <span style="font-size:28px"><a href=''>[Slides]</a>
-        </span>
+        <img class="round" style="width:600px" src="./static/images/teaser.png" />
       </center>
-    </tr>
-  </table>
-  <hr>
-  -->
+      <!-- <video id="teaser" autoplay muted loop playsinline height="100%"> -->
+      <!--   <source src="./static/videos/teaser.mp4" -->
+      <!--           type="video/mp4"> -->
+      <!-- </video> -->
+      <h2 class="subtitle has-text-centered">
+        Left: Three examples of 2D ball detections in an accumulated event frame which serves as the input to the Spiking Neural Network (SNN) with <font color="green">ground truth in green</font> and the <font color="red">estimated position in red</font>. Right: Five observed 2D trajectories in the camera frame of the event-based camera with <font color="green">ground truth in green</font> and the <font color="red">estimated positions in red</font>. Background: The table tennis robot setup with the robot hitting back a table tennis ball in a rally.
+      </h2>
+    </div>
+  </div>
+</section>
 
-  <!--
-  <center>
-    <h1>Code</h1>
-  </center>
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Neuromorphic Computing (NC) and Spiking Neural Networks (SNNs) in particular are often viewed as the next generation of Neural Networks (NNs). NC is a novel bio-inspired paradigm for energy efficient neural computation, often relying on SNNs in which neurons communicate via spikes in a sparse, event-based manner. This communication via spikes can be exploited by neuromorphic hardware implementations very effectively and results in a drastic reductions of power consumption and latency in contrast to regular GPU-based NNs. In recent years, neuromorphic hardware has become more accessible, and the support of learning frameworks has improved. However, available hardware is partially still experimental, and it is not transparent what these solutions are effectively capable of, how they integrate into real-world robotics applications, and how they realistically benefit energy efficiency and latency. In this work, we provide the robotics research community with an overview of what is possible with SNNs on neuromorphic hardware focusing on real-time processing. We introduce a benchmark of three popular neuromorphic hardware devices for the task of event-based object detection. Moreover, we show that an SNN on a neuromorphic hardware is able to run in a challenging table tennis robot setup in real-time.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
 
-  <table align=center width=420px>
-    <center>
-      <tr>
-        <td>
-        </td>
-      </tr>
-    </center>
-  </table>
-  <table align=center width=400px>
-    <tr>
-      <td align=center width=400px>
-        <center>
-      <td><img class="round" style="width:450px" src="./resources/method_diagram.png" /></td>
-      </center>
-      </td>
-    </tr>
-  </table>
-  <table align=center width=850px>
-    <center>
-      <tr>
-        <td>
-          Short description if wanted
-        </td>
-      </tr>
-    </center>
-  </table>
-  <table align=center width=800px>
-    <br>
-    <tr>
-      <center>
-        <span style="font-size:28px">&nbsp;<a href='https://github.com/richzhang/webpage-template'>[GitHub]</a>
-      </center>
-      </span>
-  </table>
-  <br>
-  <hr>
-  -->
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/uLgIhVKnsHg?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
 
-  <table align=center width=450px>
-    <center>
-      <h1>Paper</h1>
-    </center>
-    <tr>
-      <td><a href="https://arxiv.org/pdf/2403.10677"><img class="layered-paper-big" style="height:175px" src="./resources/paper.png" /></a></td>
-      <td><span style="font-size:14pt">A. Ziegler, K. Vetter, T. Gossard, J. Tebbe, S. Otte, A. Zell.<br>
-          <b><a href="https://arxiv.org/pdf/2403.10677">Detection of Fast-Moving Objects with Neuromorphic Hardware.</a></b><br>
-          <!--In Conference, 20XX.<br>-->
-          (hosted on <a href="https://arxiv.org/pdf/2403.10677">ArXiv</a>)<br>
-          <!-- (<a href="./resources/camera-ready.pdf">camera ready</a>)<br> -->
-          <span style="font-size:4pt"><a href=""><br></a>
-          </span>
-      </td>
-    </tr>
-  </table>
-  <br>
 
-  <table align=center width=600px>
-    <tr>
-      <td><span style="font-size:14pt">
-          <center>
-            <a href="./resources/bibtex.txt">[Bibtex]</a>
-          </center>
-      </td>
-    </tr>
-  </table>
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{Ziegler2025icra,
+  title={Detection of Fast-Moving Objects with Neuromorphic Hardware},
+  url = {https://arxiv.org/pdf/2403.10677},
+  author={Ziegler,  Andreas and Vetter,  Karl and Gossard,  Thomas and Tebbe,  Jonas and Otte,  Sebastian and Zell, Andreas},
+  booktitle = {2025 {International} {Conference} on {Robotics} and {Automation} ({ICRA})},
+  publisher = {IEEE},
+  year={2025},
+}</code></pre>
+  </div>
+</section>
 
-  <hr>
-  <br>
 
-  <table align=center width=900px>
-    <tr>
-      <td width=400px>
-        <left>
-          <center>
-            <h1>Acknowledgements</h1>
-          </center>
-          This research was partially funded by <a href="https://ai.sony">Sony AI</a>.
-        </left>
-      </td>
-    </tr>
-  </table>
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Acknowledgements. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Acknowledgements</h2>
+        <div class="content has-text-justified">
+          <p>
+            This research was partially funded by <a href="https://ai.sony">Sony AI</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Acknowledgements. -->
+  </div>
+</section>
 
-  <br>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website borrowed from the <a
+              href="https://github.com/nerfies/nerfies.github.io"><span class="dnerf">Nerfies</span></a>.
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
 </body>
-
 </html>
